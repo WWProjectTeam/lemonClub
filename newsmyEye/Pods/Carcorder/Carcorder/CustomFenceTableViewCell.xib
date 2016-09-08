@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="170" id="KGk-i7-Jjw" customClass="CustomFenceTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="331" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="331" height="169"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="湖南省长沙市长沙县黄花镇寺冲尾" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipD-Ex-RCR">
+                        <rect key="frame" x="25" y="31" width="243" height="48"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="3363米" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBQ-Wv-ZBw">
+                        <rect key="frame" x="39" y="104" width="215" height="31"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.31372549020000001" green="0.82352941180000006" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="ipD-Ex-RCR" secondAttribute="trailing" constant="10" id="3Je-gH-fnv"/>
+                    <constraint firstItem="ipD-Ex-RCR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Ec0-sX-gjV"/>
+                    <constraint firstItem="zBQ-Wv-ZBw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="J66-nL-q7J"/>
+                    <constraint firstItem="zBQ-Wv-ZBw" firstAttribute="top" secondItem="ipD-Ex-RCR" secondAttribute="bottom" constant="5" id="Ol3-zF-nUs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="zBQ-Wv-ZBw" secondAttribute="bottom" constant="5" id="QlE-Ic-apm"/>
+                    <constraint firstItem="ipD-Ex-RCR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="qXQ-MT-dE1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zBQ-Wv-ZBw" secondAttribute="trailing" constant="10" id="zJ6-Ia-uW3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fenceAddressLab" destination="ipD-Ex-RCR" id="0pK-jI-uCW"/>
+                <outlet property="fenceRadiusLab" destination="zBQ-Wv-ZBw" id="8ve-Ig-667"/>
+            </connections>
+            <point key="canvasLocation" x="231.5" y="260"/>
+        </tableViewCell>
+    </objects>
+</document>

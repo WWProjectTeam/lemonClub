@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell alpha="0.20000000000000001" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="138" id="KGk-i7-Jjw" customClass="CustomTrackCell">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="86"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbD-Rh-Uac">
+                        <rect key="frame" x="116" y="29" width="204" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" misplaced="YES" image="小脚丫" translatesAutoresizingMaskIntoConstraints="NO" id="9G4-Ly-fFS">
+                        <rect key="frame" x="35" y="27" width="41" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="7E6-fh-Pbv"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bbD-Rh-Uac" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Khd-hE-dRA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bbD-Rh-Uac" secondAttribute="bottom" constant="5" id="UsE-bS-34B"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9G4-Ly-fFS" secondAttribute="bottom" constant="10" id="XeO-Ay-xRD"/>
+                    <constraint firstItem="bbD-Rh-Uac" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="kuF-3Z-pNC"/>
+                    <constraint firstItem="9G4-Ly-fFS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="l1x-r2-INL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bbD-Rh-Uac" secondAttribute="trailing" constant="10" id="nJw-Ze-dPy"/>
+                    <constraint firstItem="9G4-Ly-fFS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="qE5-a9-ysD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="feetImg" destination="9G4-Ly-fFS" id="IvZ-uW-BuL"/>
+                <outlet property="tracksLab" destination="bbD-Rh-Uac" id="TJO-XW-9ze"/>
+            </connections>
+            <point key="canvasLocation" x="265.5" y="270.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="小脚丫" width="17" height="17"/>
+    </resources>
+</document>

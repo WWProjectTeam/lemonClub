@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  newsmyEye
+
+  Created by newsmy on 16/7/4.
+  Copyright © 2016年 newsmy. All rights reserved.
+*/
+CFBundleDisplayName = "纽眼";
+
+"Login" = "登录";
+
+"Register" = "注册";

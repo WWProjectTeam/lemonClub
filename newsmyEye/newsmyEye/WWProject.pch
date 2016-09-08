@@ -1,0 +1,60 @@
+//
+//  WWProject.pch
+//  WWSampleProject
+//
+//  Created by ww on 15/9/9.
+//  Copyright (c) 2015年 王维. All rights reserved.
+//
+
+#ifndef WWSampleProject_WWProject_pch
+#define WWSampleProject_WWProject_pch
+
+//DDLog
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+
+#import <Foundation/Foundation.h>
+
+#import "DDLog.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#endif
+
+#ifdef DEBUG
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
+#else
+
+static const int ddLogLevel = LOG_LEVEL_WARN;
+
+#endif
+
+//profile
+#import "WWFontProfile.h"
+#import "WWColorProfile.h"
+
+//HUD
+#import "SVProgressHUD.h"
+
+//AppDelegate
+#import "AppDelegate.h"
+
+//MJ
+#import "MJRefresh.h"
+
+//UI
+#import "Masonry.h"
+
+
+//FLEX
+#if DEBUG
+#import "FLEXManager.h"
+#endif
+
+#import "AFNetworking.h"
+
+
+
+#endif
