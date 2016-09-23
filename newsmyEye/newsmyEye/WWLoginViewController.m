@@ -11,6 +11,7 @@
 #import "HyLoglnButton.h"
 #import "HyLoginButton.h"
 #import "WWHomePageViewController.h"
+#import "WWRegisterViewController.h"
 
 
 @interface WWLoginViewController (){
@@ -68,7 +69,7 @@
     
     //输入框
     //用户名
-
+    
     UIView * viewPhone = [[UIView alloc]init];
     [viewPhone setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.6]];
     viewPhone.layer.cornerRadius = 5.f;
@@ -137,7 +138,7 @@
         make.bottom.equalTo(viewPwd.mas_bottom).offset(-5);
     }];
     
-
+    
     //忘记密码
     UIButton * btnForgetPwd = [[UIButton alloc]init];
     [btnForgetPwd setTitle:@"忘记密码" forState:UIControlStateNormal];
@@ -145,7 +146,7 @@
     [btnForgetPwd.titleLabel setFont:font_nonr_size(14)];
     btnForgetPwd.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btnForgetPwd addTarget:self action:@selector(forgetPwd) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self.view addSubview:btnForgetPwd];
     
     [btnForgetPwd mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -159,21 +160,21 @@
     
     [btnSubmit setTitle:@"登    录" forState:UIControlStateNormal];
     [btnSubmit setBackgroundImage:[self buttonImageFromColor:btn_organ] forState:UIControlStateNormal];
-   // [btnSubmit setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
-
+    // [btnSubmit setBackgroundColor:[UIColor colorWithRed:1 green:0.f/255.0f blue:128.0f/255.0f alpha:1]];
+    
     [btnSubmit setAlpha:.7f];
     btnSubmit.layer.cornerRadius = 5.f;
     [btnSubmit addTarget:self action:@selector(loginIn:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     
     [self.view addSubview:btnSubmit];
     
-//    [btnSubmit mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view.mas_left).offset(40);
-//        make.right.equalTo(self.view.mas_right).offset(-40);
-//        make.top.equalTo(btnForgetPwd.mas_bottom).offset(50);
-//        make.height.equalTo(@44);
-//    }];
+    //    [btnSubmit mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.left.equalTo(self.view.mas_left).offset(40);
+    //        make.right.equalTo(self.view.mas_right).offset(-40);
+    //        make.top.equalTo(btnForgetPwd.mas_bottom).offset(50);
+    //        make.height.equalTo(@44);
+    //    }];
     
     
     //账户注册
@@ -199,7 +200,7 @@
     }];
     
     
-
+    
     
     //其他登陆方式
     UIButton * btnWeChat = [[UIButton alloc]init];
@@ -269,7 +270,7 @@
         case 10002:
         {
             DDLogInfo(@"QQ");
-
+            
             NSArray* permissions = [NSArray arrayWithObjects:
                                     kOPEN_PERMISSION_GET_USER_INFO,
                                     kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
@@ -302,40 +303,40 @@
     
     typeof(self) __weak weak = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-       
+        
         DDLogInfo(@"登陆动作");
-//        //校验
-//        if (tfUserPhone.text.length != 11) {
-//            [SVProgressHUD showImage:nil status:@"手机号码错误，请重新输入!"];
-//            
-//            [button failedAnimationWithCompletion:^{
-//                    //[weak didPresentControllerButtonTouch];
-//            }];
-//
-//            return;
-//        }
-//        
-//        if (tfUserPwd.text.length < 6) {
-//            [SVProgressHUD showImage:nil status:@"密码长度不能小于6位!"];
-//            
-//            
-//            [button failedAnimationWithCompletion:^{
-//                //[weak didPresentControllerButtonTouch];
-//            }];
-//
-//            return;
-//        }
-
+        //        //校验
+        //        if (tfUserPhone.text.length != 11) {
+        //            [SVProgressHUD showImage:nil status:@"手机号码错误，请重新输入!"];
+        //
+        //            [button failedAnimationWithCompletion:^{
+        //                    //[weak didPresentControllerButtonTouch];
+        //            }];
+        //
+        //            return;
+        //        }
+        //
+        //        if (tfUserPwd.text.length < 6) {
+        //            [SVProgressHUD showImage:nil status:@"密码长度不能小于6位!"];
+        //
+        //
+        //            [button failedAnimationWithCompletion:^{
+        //                //[weak didPresentControllerButtonTouch];
+        //            }];
+        //
+        //            return;
+        //        }
+        
         
         [self.view endEditing:YES];
         //网络正常 或者是密码账号正确跳转动画
         [button succeedAnimationWithCompletion:^{
-         [weak didPresentControllerButtonTouch];
+            [weak didPresentControllerButtonTouch];
         }];
-
+        
     });
-
-   }
+    
+}
 
 
 - (void)didPresentControllerButtonTouch {
@@ -360,10 +361,15 @@
 
 -(void)registerAction{
     DDLogInfo(@"注册动作");
+    WWRegisterViewController *registerVC = [[WWRegisterViewController alloc]init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 -(void)forgetPwd{
     DDLogInfo(@"忘记密码");
+    WWRegisterViewController *registerVC = [[WWRegisterViewController alloc]init];
+    registerVC.is_register = YES;
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 #pragma makr - tfText
@@ -379,14 +385,14 @@
 
 //通过颜色来生成一个纯色图片
 - (UIImage *)buttonImageFromColor:(UIColor *)color{
-
-CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-UIGraphicsBeginImageContext(rect.size);
-CGContextRef context = UIGraphicsGetCurrentContext();
-CGContextSetFillColorWithColor(context, [color CGColor]);
-CGContextFillRect(context, rect);
-UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-UIGraphicsEndImageContext(); return img;
+    
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext(); return img;
 }
 
 
@@ -394,8 +400,8 @@ UIGraphicsEndImageContext(); return img;
 
 
 /**
-* 登录成功后的回调
-*/
+ * 登录成功后的回调
+ */
 - (void)tencentDidLogin{
     
     /** Access Token凭证，用于后续访问各开放接口 */
@@ -408,8 +414,8 @@ UIGraphicsEndImageContext(); return img;
         [_tencentOAuth getUserInfo];
         
         [self.view endEditing:YES];
-
-
+        
+        
     }else{
         
         NSLog(@"accessToken 没有获取成功");
@@ -521,7 +527,7 @@ UIGraphicsEndImageContext(); return img;
  */
 - (void)getUserInfoResponse:(APIResponse*) response{
     NSLog(@" response %@",response);
-
+    
     WWHomePageViewController  *controller = [WWHomePageViewController new];
     controller.dicUserInfoFromQQ = [response jsonResponse];
     controller.transitioningDelegate = self;

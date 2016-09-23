@@ -10,6 +10,8 @@
 
 @interface WWLeftMenuView : UIView
 
+@property (nonatomic,strong) void (^btnClickBolck)(UIButton *send);
+
 //头像
 @property (strong,nonatomic) UIImage * imageHead;
 @property (strong,nonatomic) NSString * imageHeadUrl;

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WWLoginViewController.h"
+#import "WWGuideViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,23 +21,30 @@
     
 #pragma mark - DeBugFlex
 #if DEBUG
-    [[FLEXManager sharedManager] showExplorer];
+    //    [[FLEXManager sharedManager] showExplorer];
     DDLogInfo(@"调试器加载成功!");
 #endif
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"firstGuide"]) {
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstGuide"];
     
-    WWLoginViewController * login = [[WWLoginViewController alloc]init];
-    
-    //导航条创建
-    self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:login];
-    
-    
-    [self.window setRootViewController:self.navtionViewControl];
+        WWGuideViewController *guideVC = [[WWGuideViewController alloc]init];
+        [self.window setRootViewController:guideVC];
+        
+//    }else{
+//        
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        self.window.backgroundColor = [UIColor whiteColor];
+//        
+//        WWLoginViewController * login = [[WWLoginViewController alloc]init];
+//        //导航条创建
+//        self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:login];
+//        
+//        [self.window setRootViewController:self.navtionViewControl];
+//    }
     
     [self.window makeKeyAndVisible];
-
+    
     
     return YES;
 }

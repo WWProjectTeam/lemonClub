@@ -8,8 +8,9 @@
 
 #import "WWLeftMenuView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+
 @implementation WWLeftMenuView{
-    @private
+@private
     UIImageView * imageViewHead;
     UILabel * labelUserNickName;
     UIButton * btnMySend;
@@ -25,18 +26,18 @@
         UIImageView * backGround = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [backGround setImage:[UIImage imageNamed:@"personbackground-2"]];
         [backGround setContentMode:UIViewContentModeScaleAspectFill];
-      //  [backGround setAlpha:.6f];
+        //  [backGround setAlpha:.6f];
         [self addSubview:backGround];
         
         
-//        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
-//        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
-//        effectview.frame = backGround.bounds;
-//        effectview.alpha = 1.0f;
-//        [backGround addSubview:effectview];
+        //        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        //        UIVisualEffectView *effectview = [[UIVisualEffectView alloc] initWithEffect:blur];
+        //        effectview.frame = backGround.bounds;
+        //        effectview.alpha = 1.0f;
+        //        [backGround addSubview:effectview];
         
         
-
+        
         
         imageViewHead = [[UIImageView alloc]init];
         [imageViewHead setImage:[UIImage imageNamed:@"photo--default"]];
@@ -48,6 +49,15 @@
             make.centerX.equalTo(self.mas_centerX);
             make.width.equalTo(@71);
             make.height.equalTo(@71);
+        }];
+        
+        
+        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [imageButton addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+        imageButton.tag = 1005;
+        [self addSubview:imageButton];
+        [imageButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.width.height.equalTo(imageViewHead);
         }];
         
         
@@ -83,7 +93,8 @@
         //设置按钮
         UIButton * btnSetting = [[UIButton alloc]init];
         [btnSetting setImage:[UIImage imageNamed:@"set"] forState:UIControlStateNormal];
-        
+        [btnSetting addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+        btnSetting.tag = 1000;
         [self addSubview:btnSetting];
         
         [btnSetting mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,35 +108,42 @@
         
         btnMySend = [[UIButton alloc]initWithFrame:CGRectMake((MainView_Width-200)/2,255, 124, 21)];
         [btnMySend setBackgroundImage:[UIImage imageNamed:@"publis1"] forState:UIControlStateNormal];
+        btnMySend.tag = 1001;
+        [btnMySend addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnMySend];
         
-
         
         
         //我的收藏
         
         btnMyCollect = [[UIButton alloc]initWithFrame:CGRectMake((MainView_Width-200)/2, CGRectGetMaxY(btnMySend.frame)+30, 124, 21)];
         [btnMyCollect setBackgroundImage:[UIImage imageNamed:@"store1"] forState:UIControlStateNormal];
+        btnMyCollect.tag = 1002;
+        [btnMyCollect addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnMyCollect];
         
-
+        
         
         //消息
         
         btnMyMessage = [[UIButton alloc]initWithFrame:CGRectMake((MainView_Width-200)/2, CGRectGetMaxY(btnMyCollect.frame)+30, 144, 21)];
         [btnMyMessage setBackgroundImage:[UIImage imageNamed:@"message1"] forState:UIControlStateNormal];
+        btnMyMessage.tag = 1003;
+        [btnMyMessage addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnMyMessage];
         
-
+        
         
         
         //标签
         
         btnMyTag = [[UIButton alloc]initWithFrame:CGRectMake((MainView_Width-200)/2, CGRectGetMaxY(btnMyMessage.frame)+30, 124, 21)];
         [btnMyTag setBackgroundImage:[UIImage imageNamed:@"pin1"] forState:UIControlStateNormal];
+        btnMyTag.tag = 1004;
+        [btnMyTag addTarget:self action:@selector(btnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnMyTag];
         
-
+        
     }
     return self;
 }
@@ -145,10 +163,10 @@
 
 -(void)showView{
     UIWindow * currentWindows = [UIApplication sharedApplication].keyWindow;
-
+    
     [UIView animateWithDuration:.6f delay:.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [self setFrame:CGRectMake(0, 0, currentWindows.frame.size.width, currentWindows.frame.size.height)];
-
+        
         //动画1
         [UIView animateWithDuration:.6f delay:.2f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [btnMySend setFrame:CGRectMake((MainView_Width-124)/2, 255, 124, 21)];
@@ -170,10 +188,10 @@
         } completion:nil];
     } completion:^(BOOL isFinish){
         
-    
+        
     }];
     
-   
+    
 }
 -(void)disMissView{
     UIWindow * currentWindows = [UIApplication sharedApplication].keyWindow;
@@ -205,6 +223,10 @@
         
     }];
     
+}
+
+- (void)btnClickEvent:(UIButton *)sender{
+    self.btnClickBolck(sender);
 }
 
 @end
