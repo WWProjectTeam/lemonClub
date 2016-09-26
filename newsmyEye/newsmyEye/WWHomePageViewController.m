@@ -10,6 +10,15 @@
 #import "WWLeftMenuView.h"
 #import "WWHomePageTableViewCell.h"
 #import "WWHomePageModel.h"
+#import "WWUserTagViewController.h"
+#import "WWMyPublishViewController.h"
+#import "WWMyCollectionViewController.h"
+#import "SWMessageViewController.h"
+#import "WWSetUpViewController.h"
+#import "WWUserCenterViewController.h"
+#import "WWEditInformationViewController.h"
+#import "WWPublishViewController.h"
+
 @interface WWHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
 @private WWLeftMenuView * leftView;
@@ -31,8 +40,33 @@
     [leftView setStrNickName:_dicUserInfoFromQQ[@"nickname"]];
     UIWindow * currentWindows = [UIApplication sharedApplication].keyWindow;
     [currentWindows addSubview:leftView];
+    __weak WWHomePageViewController *Wself = self;
+    __weak WWLeftMenuView *leftSelf  = leftView;
+    leftView.btnClickBolck = ^(UIButton *sender){
+        [leftSelf disMissView];
+        if (sender.tag == 1000) {
+//            WWEditInformationViewController *editVC = [[WWEditInformationViewController alloc]init];
+//            [Wself.navigationController pushViewController:editVC animated:YES];
+            WWSetUpViewController *setUpVC = [[WWSetUpViewController alloc]init];
+            [Wself.navigationController pushViewController:setUpVC animated:YES];
+        }else if (sender.tag == 1004) {
+            WWUserTagViewController *userTagVC = [[WWUserTagViewController alloc]init];
+            [Wself.navigationController pushViewController:userTagVC animated:YES];
+        }else if (sender.tag == 1001){
+            WWMyPublishViewController *myPublishVC = [[WWMyPublishViewController alloc]init];
+            [Wself.navigationController pushViewController:myPublishVC animated:YES];
+        }else if (sender.tag == 1002){
+            WWMyCollectionViewController *myCollectionVC = [[WWMyCollectionViewController alloc]init];
+            [Wself.navigationController pushViewController:myCollectionVC animated:YES];
+        }else if (sender.tag == 1005){
+            WWUserCenterViewController *userCenterVC = [[WWUserCenterViewController alloc]init];
+            [Wself.navigationController pushViewController:userCenterVC animated:YES];
+        }else{
+            SWMessageViewController *messageVC = [[SWMessageViewController alloc]init];
+            [Wself.navigationController pushViewController:messageVC animated:YES];
+        }
+    };
     
-
     
     tableViewPage = [[UITableView alloc]init];
     [tableViewPage setDelegate:self];
@@ -56,10 +90,13 @@
 }
 
 -(void)addTips{
-
+    WWPublishViewController *publishVC = [[WWPublishViewController alloc]init];
+    [self.navigationController pushViewController:publishVC animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    // 恢复导航条
+    [self.navigationController setNavigationBarHidden:NO];
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:font_nonr_size(19),NSForegroundColorAttributeName:WWOrganText}];
     
@@ -81,7 +118,7 @@
     [submit addTarget:self action:@selector(addTips) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:submit];
     self.navigationItem.rightBarButtonItem = rightButton;
-
+    
 }
 
 #pragma mark - tableViewDelegate
@@ -136,7 +173,7 @@
     else
     {
         [cell.labelDesc setHidden:YES];
-
+        
         [cell.imgContent mas_updateConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(cell.labelTitle.mas_bottomMargin).offset(20);
         }];
@@ -149,7 +186,7 @@
         else
         {
             [cell.imgContent setHidden:YES];
-
+            
             [cell.labelTime mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.top.equalTo(cell.labelTitle.mas_bottomMargin).offset(10);
             }];
@@ -157,7 +194,7 @@
         }
     }
     
-
+    
     cell.labelTime.text = model.strTime;
     cell.labelLike.text= model.strFavtionNum;
     cell.labelShareNum.text = model.strShareNum;
@@ -167,14 +204,14 @@
     
     model.height = [cell rowHeight];
     
-        return cell;
+    return cell;
     
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     WWHomePageModel * model = arrayList[indexPath.row];
-
+    
     return model.height;
 }
 
@@ -182,7 +219,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
 }
 
 
@@ -210,16 +247,16 @@
     model02.strImageContent = @"testqiu03";
     model02.strTag = @"一次心灵的路程";
     model02.strTime = @"06-22 12:13";
-
+    
     model02.strFavtionNum = @"998";
     model02.strCollectNum = @"198";
     model02.strShareNum = @"78";
     model02.strCommitNum = @"698";
-
+    
     
     [arrayList addObject:model02];
     
-
+    
     WWHomePageModel * model03 = [[WWHomePageModel alloc]init];
     model03.strUserHead = @"testqiu05";
     model03.strUserNickName = @"大狸子";
@@ -227,7 +264,7 @@
     model03.strTitle = @"真希望你们好好地";
     model03.strTag = @"大水笔";
     model03.strTime = @"06-22 12:13";
-
+    
     model03.strFavtionNum = @"998";
     model03.strCollectNum = @"198";
     model03.strShareNum = @"78";
@@ -243,7 +280,7 @@
     model04.strTitle = @"毕业了";
     model04.strTag = @"大水笔";
     model04.strTime = @"06-22 12:13";
-
+    
     model04.strFavtionNum = @"998";
     model04.strCollectNum = @"198";
     model04.strShareNum = @"78";
@@ -259,7 +296,7 @@
     model05.strDesc = @"毕业了";
     model05.strTag = @"回忆";
     model05.strTime = @"06-22 12:13";
-
+    
     model05.strFavtionNum = @"998";
     model05.strCollectNum = @"198";
     model05.strShareNum = @"78";
@@ -275,11 +312,11 @@
     [self.view updateConstraintsIfNeeded];
     
     [self.view layoutIfNeeded];
-
-//    
-//    [UIView animateWithDuration:0.3 animations:^{
-//        [self.view layoutIfNeeded];
-//    }];
+    
+    //
+    //    [UIView animateWithDuration:0.3 animations:^{
+    //        [self.view layoutIfNeeded];
+    //    }];
     
 }
 

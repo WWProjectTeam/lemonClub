@@ -65,7 +65,6 @@
             make.top.equalTo(self.imgHead.mas_top).offset(5);
             make.bottom.equalTo(self.imgHead.mas_bottom).offset(-5);
             make.width.lessThanOrEqualTo(@(MainView_Width-160));
-            
         }];
         
         self.labelTitle = [[UILabel alloc]init];

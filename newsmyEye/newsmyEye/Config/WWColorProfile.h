@@ -41,6 +41,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define WWPageLineColor                 RGBCOLOR(217,217,217)
 //内容颜色
 #define WWContentTextColor              RGBCOLOR(51,51,51)
+//提示文字颜色
+#define WWPlaceTextColor                RGBCOLOR(153,153,153)
 //黄色文字
 #define WWOrganText                      RGBCOLOR(237,200,30)
 

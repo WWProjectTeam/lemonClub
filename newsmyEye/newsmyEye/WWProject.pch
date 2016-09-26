@@ -17,6 +17,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UIView+Tool.h"
 #import "DDLog.h"
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #endif
@@ -47,6 +48,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 //UI
 #import "Masonry.h"
 
+//SDImage
+#import <SDWebImage/SDImageCache.h>
 
 //FLEX
 #if DEBUG
