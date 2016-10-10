@@ -187,6 +187,7 @@
     self.publishTableView.delegate = self;
     self.publishTableView.dataSource = self;
     self.publishTableView.backgroundColor = [UIColor clearColor];
+    self.publishTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.BackScrollview addSubview:self.publishTableView];
     [self.publishTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
@@ -199,6 +200,7 @@
     self.collectionTableView.delegate = self;
     self.collectionTableView.dataSource = self;
     self.collectionTableView.backgroundColor = [UIColor clearColor];
+    self.collectionTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.BackScrollview addSubview:self.collectionTableView];
     [self.collectionTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.BackScrollview);
@@ -264,7 +266,7 @@
     if (tableView == self.publishTableView) {
         static NSString *cellIdentifier = @"publichCell";
         //
-        WWPublishTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        WWPublishTableViewCell *cell = [[WWPublishTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if(cell == nil) {
             cell = [[WWPublishTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
@@ -276,7 +278,7 @@
     }else{
         static NSString *cellIdentifier = @"collectionCell";
         //
-        WWPublishTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        WWPublishTableViewCell *cell = [[WWPublishTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         if(cell == nil) {
             cell = [[WWPublishTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
