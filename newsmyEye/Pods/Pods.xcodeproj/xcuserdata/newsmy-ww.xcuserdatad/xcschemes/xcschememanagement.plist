@@ -49,7 +49,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-newsmyEye.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -59,7 +59,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITableView+FDTemplateLayoutCell_Bell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,67 +82,77 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F32EF50ACBD74DC163909A1A97BD8DA</key>
+		<key>04CF549EBEEE7BC87AEAE35397184D94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
+		<key>0C58AA1A2855208337C4E13D8ED53A16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
+		<key>1A9298B32F31A61F3742650B19EE27BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
+		<key>45D83B5D1E1846056A8B5161BFE3E8AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>580787BAE4AF0786626C42AAE3E9CE14</key>
+		<key>4710991A40D5D15EC607108111920D4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58829B5FB362395F1C965DC78C35F10E</key>
+		<key>58E48AC84AF6D20D9BBD2D52088309C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F06F49D64E04DCD9683D916034330CE</key>
+		<key>755345325818102A8B1DDDD378EC9676</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>77307875A8D615D041EEA1B5D666A76C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BEC7E98BAFBBCDA06DDA8DC48ED5231D</key>
+		<key>9C6F5371935FAECEA6527C97720C7CDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C603EFE4AB12127AFC95861855B07DD5</key>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D230BD08520596C948228F00BEF9E2FF</key>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FDC4981285617666BFB83C856ED23F94</key>
+		<key>A9C80EAC6ED269D9A57BA593DCBF85FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B30A0E6EE3A3E8F6CC345AC5AF607A06</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3F18257AE2D301B4DF787B42C4CAC67</key>
 		<dict>
 			<key>primary</key>
 			<true/>

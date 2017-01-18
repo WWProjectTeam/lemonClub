@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BA98461E90FDD3B854A94DC7'
+               BlueprintIdentifier = '0C58AA1A2855208337C4E13D8ED53A16'
                BlueprintName = 'CAAnimationBlocks'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCAAnimationBlocks.a'>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3E63769BB33721E4632C1567'
+               BlueprintIdentifier = 'F3F18257AE2D301B4DF787B42C4CAC67'
                BlueprintName = 'LMAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLMAlertView.a'>
